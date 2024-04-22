@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 1;
     float horizontalDir;
     private bool isGrounded = false;
+    bool canDoubleJump = false;
 
     private Rigidbody2D rb;
 
@@ -30,6 +31,13 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+            canDoubleJump = true;
+        }
+
+        else if (canDoubleJump)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+            canDoubleJump = false;
         }
     }
 
@@ -46,6 +54,7 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.CompareTag("Floor"))
         {
             isGrounded = true;
+            canDoubleJump = false;
         }
     }
 
