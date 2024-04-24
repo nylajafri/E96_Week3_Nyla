@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class collider : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        SceneManager.LoadScene(2);
+        if (other.gameObject.name == "Slime")
+        {
+            Debug.Log("Switch"); 
+            SceneManager.LoadScene(1);
+        }
     }
 }
