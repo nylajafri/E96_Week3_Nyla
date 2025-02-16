@@ -10,7 +10,7 @@ public class collider : MonoBehaviour
         if (other.gameObject.name == "Slime")
         {
             Debug.Log("Switch"); 
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }
